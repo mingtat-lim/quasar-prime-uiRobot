@@ -51,7 +51,9 @@ export class VmsConfig {
 
     get dataFileName() {
         // return './data/automation-master-data.xlsx';
-        return this._PARAMS.fileName === '' ? this.defaultFileName : this._PARAMS.fileName;
+        return this._PARAMS.fileName === ''
+            ? this._PARAMS.isVolunteer ? this.defaultFileName.replace('{type}', 'volunteer') : this.defaultFileName.replace('{type}', 'public')
+            : this._PARAMS.fileName;
     }
     get worksheetName() {
         // return this.params.isVolunteer ? 'sgRegister' : 'non-vol';
@@ -124,6 +126,6 @@ export class DmsConfig {
     }
 
     get dmsPortalUrl() {
-        return this.baseUrl;
+        return `${this.baseUrl}/Donation/DonateNow`;
     }
 }

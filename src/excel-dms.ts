@@ -92,11 +92,16 @@ export async function getDonationData(
     sheet.eachRow((row, rowNumber) => {
         if (rowNumber === 1) return; // Skip header row
         const record: DonationDataRow = {
-            fullName: row.getCell(1).value?.toString() ?? '',
-            chineseName: row.getCell(2).value?.toString() ?? '',
-            phoneNo: row.getCell(3).value?.toString() ?? '',
-            amount: parseFloat(row.getCell(4).value?.toString() ?? '0'),
-            gender: row.getCell(5).value?.toString() ?? '',
+            // fullName: row.getCell(1).value?.toString() ?? '',
+            // chineseName: row.getCell(2).value?.toString() ?? '',
+            // phoneNo: row.getCell(3).value?.toString() ?? '',
+            // amount: parseFloat(row.getCell(4).value?.toString() ?? '0'),
+            // gender: row.getCell(5).value?.toString() ?? '',
+            fullName: row.getCell(1).text,
+            chineseName: row.getCell(2).text,
+            phoneNo: row.getCell(3).text,
+            amount: parseFloat(row.getCell(4).text),
+            gender: row.getCell(5).text,
         };
 
         const errorRecord: DmsErrorData = {
