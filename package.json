@@ -1,5 +1,5 @@
 {
-    "name": "uiRobot",
+    "name": "ui-robot",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -26,7 +26,9 @@
     "scripts": {
         "dev": "",
         "test": "",
-        "checkin": "git add . && git commit -m daily commit -S && git push",
+        "vms": "node ./dist/cli.js vms",
+        "dms": "node ./dist/cli.js dms",
+        "checkin": "git add . && git commit -m \"daily commit\" -S && git push",
         "lint": "eslint \"src/**/*.ts\"",
         "lint-fix": "eslint --fix \"src/**/*.ts\"",
         "format": "prettier --write \"**/*.{ts,js,mjs,json,css,scss,md}\"",
@@ -42,5 +44,11 @@
         "prettier": "^3.3.3",
         "typescript": "^5.5.4",
         "typescript-eslint": "^8.5.0"
+    },
+    "dependencies": {
+        "@dotenvx/dotenvx": "^1.14.0",
+        "@playwright/test": "^1.47.0",
+        "commander": "^12.1.0",
+        "exceljs": "^4.4.0"
     }
 }
